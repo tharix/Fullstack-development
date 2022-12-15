@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Collections</title>
+ <script src="jquery.js"></script>
+ <script src="underscore.js"></script>
+ <script src="backbone.js"></script>
+ <script>
+  const appleData = [
+   {
+    name: 'fuji', url: 'img/fuji.jpg'
+   },
+   {
+    name: 'gala', url: 'img/gala.jpg'
+   }
+  ]
+  let app
+  const router = Backbone.Router.extend({
+   routes: {
+    '': 'home', 'apples/:appleName': 'loadApple'
+   },
+   initialize: function () {
+    const apples = new Apples()
+    apples.reset(appleData)
+    this.homeView = new homeView({collection: apples})
+    this.appleView = new appleView({collection: apples})
+   },
+   home: function () {
+    this.homeView.render()
+   },
+   loadApple: function (appleName) {
+    this.appleView.render(appleName)
+   }
+  })
+
+  const homeView = Backbone.View.extend({
+   el: 'body', template: _.template('Apple data: <%= data %>'),
+   render: function () {
+    this.$el.html(this.template({ data: JSON.stringify(this.collection.models) }))
+   }
+  })
+
+  const Apples = Backbone.Collection.extend({})
+  const appleView = Backbone.View.extend({
+   template: _.template('<figure>\
+   <img src="<%= attributes.url%>"/>\
+   <figcaption><%= attributes.name %></figcaption>\</figure>'),
+   // Re-write with load apple and event binding
+   render: function (appleName) {
+    const appleModel = this.collection.where({ name: appleName })[0]
+    const appleHtml = this.template(appleModel)
+    $('body').html(appleHtml)
+   }
+  })
+
+  $(document).ready(function () {
+   app = new router
+   Backbone.history.start()
+  })
+ </script>
+</head>
+
+<body>
+ <div></div>
+</body>
+
+</html>

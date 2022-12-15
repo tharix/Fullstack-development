@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Backbone App</title>
+ <script src="jquery.js"></script>
+ <script src="underscore.js"></script>
+ <script src="backbone.js"></script>
+ <script>
+
+  let app // Becomes window.app
+  const router = Backbone.Router.extend({
+   routes: {
+    '': 'home'
+   },
+   initialize: function () {
+
+   },
+   home: function () {
+    this.homeView = new homeView
+    this.homeView.render()
+   }
+  })
+
+  const homeView = Backbone.View.extend({
+   el: 'body',
+   template: _.template('Hello World'),
+   render: function () {
+    this.$el.html(this.template({}))
+   }
+  })
+
+  $(document).ready(function () {
+   app = new router
+   Backbone.history.start()
+  })
+ </script>
+</head>
+
+<body>
+ <div></div>
+</body>
+
+</html>

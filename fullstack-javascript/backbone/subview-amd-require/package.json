@@ -1,0 +1,21 @@
+{
+  "name": "amd",
+  "version": "1.0.0",
+  "description": "Require.js for Backbone.js Production",
+  "main": "apple-app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/tharix/Fullstack-development"
+  },
+  "author": "harix",
+  "license": "ISC",
+  "dependencies": {
+    "i": "^0.3.7",
+    "nyc": "^15.1.0",
+    "requirejs": "^2.3.6",
+    "uglify-js": "^3.17.4"
+  }
+}
