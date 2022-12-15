@@ -1,16 +1,17 @@
 {
-  "name": "mongodb",
+  "name": "board-api",
   "version": "1.0.0",
-  "dependencies": {
-    "mongodb": "3.x"
-  },
   "description": "",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "main": "web.js",
+  "dependencies": {
+    "mongodb": "2.0.35",
+    "url": ""
   },
   "engines": {
-    "node": ">=8.x"
+    "node": ">=0.6.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",

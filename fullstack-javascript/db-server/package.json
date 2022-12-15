@@ -1,0 +1,19 @@
+{
+  "name": "db-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "mongodb": "",
+    "url": ""
+  },
+  "engines": {
+    "node": ">=0.6.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
